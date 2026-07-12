@@ -400,7 +400,7 @@ def build_gaussian_pyramid(image, levels,y):
     downsample_image_4 = apply_random_transformation(image,num)    
      
     
-    new_image = find_max_js_divergence(downsample_image_1,downsample_image_2,downsample_image_3,downsample_image_4,image, y)
+    new_image = find_min_js_divergence(downsample_image_1,downsample_image_2,downsample_image_3,downsample_image_4,image, y)
     next_image.append(new_image)     
     
     for i in range(1, levels+1):
@@ -413,7 +413,7 @@ def build_gaussian_pyramid(image, levels,y):
         downsample_image_4 = apply_random_transformation(downsampled_image,num)  
 
            
-        new_image = find_max_js_divergence(downsample_image_1,downsample_image_2,downsample_image_3,downsample_image_4,image, y)
+        new_image = find_min_js_divergence(downsample_image_1,downsample_image_2,downsample_image_3,downsample_image_4,image, y)
         next_image.append(new_image)
     
     # this way
