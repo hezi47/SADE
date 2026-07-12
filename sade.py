@@ -108,7 +108,7 @@ def js_divergence(p, q,loss_p,loss_q):
 
 
     
-def find_max_js_divergence(x_1, x_2, x_3, x_4, original_image, y):
+def find_min_js_divergence(x_1, x_2, x_3, x_4, original_image, y):
     one_hot = tf.one_hot(y, 1001)
          
    
@@ -288,7 +288,7 @@ def load_images(input_dir, batch_shape):
     for filepath in tf.gfile.Glob(os.path.join(input_dir, '*')):
         with tf.gfile.Open(filepath, 'rb') as f:
             image = imread(f, pilmode='RGB').astype(np.float) / 255.0
-        # image = resize(image, (224, 224), anti_aliasing=True) #res101????¨¹?
+        # image = resize(image, (224, 224), anti_aliasing=True) #res101????ï¿½ï¿½?
         # Images for inception classifier are normalized to be in [-1, 1] interval.
         images[idx, :, :, :] = image * 2.0 - 1.0
         filenames.append(os.path.basename(filepath))
